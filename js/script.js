@@ -11,17 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar background change on scroll
     const navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
-    // Typing effect for hero section
+    // Typewriter effect for hero section
     const heroText = "Turning data into actionable insights";
     const heroElement = document.querySelector('.hero-content p');
     if (heroElement) {
@@ -36,7 +34,55 @@ document.addEventListener('DOMContentLoaded', () => {
         typingEffect();
     }
 
-    // Animated skill bars
+    // Scroll-to-top button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.innerHTML = '↑';
+    scrollToTopBtn.classList.add('scroll-to-top');
+    document.body.appendChild(scrollToTopBtn);
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+
+    // Form submission handling with validation
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const formEntries = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!formEntries.name || !formEntries.email || !formEntries.message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            if (!isValidEmail(formEntries.email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            console.log('Form submitted with data:', formEntries);
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+    }
+
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    // Animated skill bars (if you have skill bars to animate)
     const skills = [
         { name: "Data Analysis", level: 90 },
         { name: "Power BI", level: 85 },
@@ -80,103 +126,21 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(skillsContainer);
     }
 
-    // Project filtering
-    const projectCategories = ['All', 'Data Analysis', 'Web Development', 'Database'];
-    const projects = [
-        { name: "MSSQL Server Implementation", category: "Database" },
-        { name: "Power BI Dashboard for S&P 500 Affiliate", category: "Data Analysis" },
-        { name: "Web-Based Data Management System", category: "Web Development" }
-    ];
-
-    const projectsSection = document.querySelector('#projects');
-    if (projectsSection) {
-        const filterContainer = document.createElement('div');
-        filterContainer.classList.add('filter-container');
-        projectCategories.forEach(category => {
-            const button = document.createElement('button');
-            button.textContent = category;
-            button.addEventListener('click', () => filterProjects(category));
-            filterContainer.appendChild(button);
-        });
-        projectsSection.insertBefore(filterContainer, projectsSection.firstChild);
-
-        const projectGrid = document.querySelector('.project-grid');
-        const filterProjects = (category) => {
-            const filteredProjects = category === 'All' ? projects : projects.filter(project => project.category === category);
-            projectGrid.innerHTML = '';
-            filteredProjects.forEach(project => {
-                const projectCard = document.createElement('div');
-                projectCard.classList.add('project-card');
-                projectCard.innerHTML = `<h3>${project.name}</h3><p>${project.category}</p>`;
-                projectGrid.appendChild(projectCard);
-            });
-        };
-        filterProjects('All');
-    }
-
-    // Form submission handling with validation
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            const formEntries = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!formEntries.name || !formEntries.email || !formEntries.message) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            if (!isValidEmail(formEntries.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            console.log('Form submitted with data:', formEntries);
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        });
-    }
-
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
     // Dark mode toggle
     const darkModeToggle = document.createElement('button');
-    darkModeToggle.textContent = '🌙';
+    darkModeToggle.innerHTML = '🌙';
     darkModeToggle.classList.add('dark-mode-toggle');
     document.body.appendChild(darkModeToggle);
 
     darkModeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        darkModeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     });
 
     // Check for saved dark mode preference
     if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark-mode');
-        darkModeToggle.textContent = '☀️';
+        darkModeToggle.innerHTML = '☀️';
     }
-
-    // Scroll-to-top button
-    const scrollToTopBtn = document.createElement('button');
-    scrollToTopBtn.textContent = '↑';
-    scrollToTopBtn.classList.add('scroll-to-top');
-    document.body.appendChild(scrollToTopBtn);
-
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 100) {
-            scrollToTopBtn.style.display = 'block';
-        } else {
-            scrollToTopBtn.style.display = 'none';
-        }
-    });
-
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
 });
