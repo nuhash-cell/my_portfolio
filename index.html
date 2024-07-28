@@ -3,49 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>MD SHOAIB AKHTER - Data Analyst Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <p>Short Bio or Tagline</p>
-        <nav>
+        <nav id="navbar">
             <ul>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Your bio goes here...</p>
-    </section>
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="experience-item">
-            <h3>Job Title - Company</h3>
-            <p>Job description goes here...</p>
-        </div>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-item">
-            <h3>Project Title</h3>
-            <p>Project description goes here...</p>
-            <a href="project-link">View Project</a>
-        </div>
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">Your LinkedIn Profile</a></p>
-    </section>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>MD SHOAIB AKHTER</h1>
+                <h2>Data Analyst & IT Professional</h2>
+                <p>Turning data into actionable insights</p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Dynamic and proactive professional with a year of experience in the technology sector, specializing in data-driven decision-making and operational efficiency. Certified in Microsoft PL-300 and PL-400, with expertise in Power BI, SQL, and web-based data management systems.</p>
+                    <p>Passionate about leveraging technology to drive business success and enhance user experiences.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/300/300" alt="MD SHOAIB AKHTER">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Data Analysis</h3>
+                    <ul>
+                        <li>Power BI</li>
+                        <li>SQL (MSSQL & MySQL)</li>
+                        <li>Data Modeling</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>DAX & M Language</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Tableau</li>
+                        <li>Microsoft SQL Server</li>
+                        <li>Web-based Data Management Systems</li>
+                        <li>Database Administration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>MSSQL Server Implementation</h3>
+                    <p>Led the setup of Microsoft SQL Server Express for a corporate client, including configuration, security, and maintenance.</p>
+                    <div class="project-tech">
+                        <span>MSSQL</span>
+                        <span>Python</span>
+                        <span>Django</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Power BI Dashboard for S&P 500 Affiliate</h3>
+                    <p>Developed comprehensive Power BI reports to monitor manufacturing and machine daily processes, significantly improving data visibility.</p>
+                    <div class="project-tech">
+                        <span>Power BI</span>
+                        <span>MSSQL</span>
+                        <span>DAX</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Web-Based Data Management System</h3>
+                    <p>Developed a solution enabling users to access, upload, modify, and manage SQL data efficiently, enhancing operational efficiency.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> shoaibnuhash@icloud.com</p>
+                    <p><i class="fas fa-phone"></i> +8613114455051</p>
+                    <p><i class="fab fa-linkedin"></i> shoaib_akhter_</p>
+                    <p><i class="fab fa-github"></i> mdshoaibakhter</p>
+                </div>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2024 Your Name</p>
+        <p>&copy; 2024 MD SHOAIB AKHTER. All rights reserved.</p>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
